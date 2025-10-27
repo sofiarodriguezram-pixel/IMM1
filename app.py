@@ -9,18 +9,18 @@ import base64
 # ---- CONFIGURACIÓN DE PÁGINA ----
 st.set_page_config(page_title="Conversión de Texto a Audio", page_icon="📜", layout="centered")
 
-# ---- ESTILO LIBRO ANTIGUO ----
+# ---- ESTILO LIBRO ANTIGUO CON TONO CAFÉ CLARO ----
 book_style = """
 <style>
 body {
-    background: radial-gradient(circle at center, #f8f2e2 0%, #e9dec5 60%, #d9c8a5 100%);
+    background: radial-gradient(circle at center, #f3e5c0 0%, #e4d3a4 60%, #d4b97c 100%);
     font-family: 'Garamond', 'Georgia', serif;
-    color: #3b2a1a;
+    color: #3a2a16;
 }
 
 h1, h2, h3, h4, h5 {
     color: #4b2e05;
-    text-shadow: 2px 2px 4px rgba(90, 60, 20, 0.4);
+    text-shadow: 2px 2px 4px rgba(60, 40, 15, 0.4);
     font-family: 'Garamond', serif;
     letter-spacing: 1px;
 }
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .sidebar .sidebar-content {
-    background-color: #efe4c8;
+    background-color: #e9d7b5;
     color: #3b2a1a;
     border-right: 2px solid #c9b07d;
     font-family: 'Garamond', serif;
