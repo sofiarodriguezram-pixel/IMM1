@@ -7,63 +7,86 @@ from PIL import Image
 import base64
 
 # ---- CONFIGURACIÓN DE PÁGINA ----
-st.set_page_config(page_title="Conversión de Texto a Audio", page_icon="📖", layout="centered")
+st.set_page_config(page_title="Conversión de Texto a Audio", page_icon="📜", layout="centered")
 
-# ---- ESTILO VISUAL (TIPO LIBRO) ----
-page_bg = """
+# ---- ESTILO LIBRO ANTIGUO ----
+book_style = """
 <style>
 body {
-    background: linear-gradient(180deg, #f8f4e5 0%, #f1e8d9 100%);
-    font-family: 'Georgia', serif;
-    color: #3a2e2e;
+    background: radial-gradient(circle at center, #f8f2e2 0%, #e9dec5 60%, #d9c8a5 100%);
+    font-family: 'Garamond', 'Georgia', serif;
+    color: #3b2a1a;
 }
+
 h1, h2, h3, h4, h5 {
     color: #4b2e05;
-    text-shadow: 1px 1px 2px rgba(150, 120, 50, 0.3);
+    text-shadow: 2px 2px 4px rgba(90, 60, 20, 0.4);
+    font-family: 'Garamond', serif;
+    letter-spacing: 1px;
 }
+
 .stButton>button {
-    background: linear-gradient(90deg, #c49a6c, #b58c63);
-    color: white;
-    border: none;
+    background: linear-gradient(90deg, #a67c52, #8b5a2b);
+    color: #fff8e7;
+    border: 1px solid #5c3a1a;
     border-radius: 12px;
-    padding: 0.6em 1.2em;
-    font-family: 'Georgia', serif;
+    padding: 0.6em 1.4em;
+    font-family: 'Garamond', serif;
     font-size: 1.1em;
+    box-shadow: 2px 2px 5px rgba(80, 50, 20, 0.4);
     transition: all 0.3s ease-in-out;
 }
 .stButton>button:hover {
-    background: linear-gradient(90deg, #b58c63, #9c7a50);
-    transform: scale(1.02);
+    background: linear-gradient(90deg, #8b5a2b, #6b4221);
+    transform: scale(1.03);
 }
+
 .stTextArea textarea {
-    background-color: #fcf8ef;
+    background-color: #f9f5e8;
     border-radius: 10px;
-    border: 1px solid #d1bfa7;
-    color: #3a2e2e;
-    font-family: 'Georgia', serif;
+    border: 1px solid #c1a77a;
+    color: #3b2a1a;
+    font-family: 'Garamond', serif;
+    font-size: 1.05em;
+    line-height: 1.5em;
 }
+
 .sidebar .sidebar-content {
-    background-color: #f4ead7;
+    background-color: #efe4c8;
+    color: #3b2a1a;
+    border-right: 2px solid #c9b07d;
+    font-family: 'Garamond', serif;
+}
+
+a {
+    color: #6b4221 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+a:hover {
+    color: #4b2e05 !important;
+    text-shadow: 1px 1px 2px rgba(70, 40, 10, 0.3);
 }
 </style>
 """
-st.markdown(page_bg, unsafe_allow_html=True)
+st.markdown(book_style, unsafe_allow_html=True)
 
 # ---- CONTENIDO ----
-st.title("📖 Conversión de Texto a Audio")
+st.title("📜 Conversión de Texto a Audio")
 
 image = Image.open('gato_raton.png')
-st.image(image, width=350)
+st.image(image, width=350, caption="Fábula del gato y el ratón — Kafka")
 
 with st.sidebar:
-    st.subheader("✍️ Escribe o selecciona texto para ser escuchado.")
+    st.subheader("✍️ Escribe o selecciona texto para escuchar.")
+    st.markdown("---")
 
 try:
     os.mkdir("temp")
 except:
     pass
 
-st.subheader("Una pequeña fábula")
+st.markdown("## Una pequeña fábula")
 st.write(
     '“¡Ay! —dijo el ratón—. El mundo se hace cada día más pequeño. '
     'Al principio era tan grande que le tenía miedo. Corría y corría y por cierto '
@@ -74,10 +97,9 @@ st.write(
     '\n\n*Franz Kafka*'
 )
 
-st.markdown("### ¿Quieres escucharlo? Copia o escribe el texto abajo:")
+st.markdown("### 📖 ¿Quieres escucharlo? Copia o escribe el texto abajo:")
 text = st.text_area("🖋️ Ingrese el texto a escuchar:")
 
-tld = 'com'
 option_lang = st.selectbox("🌍 Selecciona el idioma", ("Español", "English"))
 lg = 'es' if option_lang == "Español" else 'en'
 
