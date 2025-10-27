@@ -9,13 +9,14 @@ import base64
 # ---- CONFIGURACIÓN DE PÁGINA ----
 st.set_page_config(page_title="Conversión de Texto a Audio", page_icon="📜", layout="centered")
 
-# ---- ESTILO LIBRO ANTIGUO CON TONO CAFÉ CLARO ----
+# ---- ESTILO LIBRO ANTIGUO CON FONDO CAFÉ CLARO ----
 book_style = """
 <style>
-body {
-    background: radial-gradient(circle at center, #f3e5c0 0%, #e4d3a4 60%, #d4b97c 100%);
+.stApp {
+    background: radial-gradient(circle at center, #f4e6c1 0%, #e7d3a1 40%, #d8b97a 90%);
     font-family: 'Garamond', 'Georgia', serif;
     color: #3a2a16;
+    padding: 2em;
 }
 
 h1, h2, h3, h4, h5 {
